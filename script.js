@@ -6,15 +6,12 @@ $(document).ready( function () {
  function getRandom() {
    $(randomButton).click(function() {
      $.ajax( {
-       url:"https://en.wikipedia.org/w/api.php?action=query&titles=Main%20Page&prop=revisions&rvprop=content&format=json&formatversion=2",
+       url:"https://en.wikipedia.org/w/api.php?action=query&generator=random&grnnamespace=0&format=json&prop=info&inprop=url",
        dataType: 'json',
-       type: 'POST',
+       type: 'get',
        headers: { 'Api-User-Agent': 'andy.l.hunt85@gmail.com'},
        success: function(result) {
-         var rawJson = JSON.stringify(result);
-         var json = JSON.parse(rawJson);
-         console.log(json.query.pages[0].pageid);
-         var pageid = json.query.pages[0].pageid;
+         var pageid = Object.keys(result.query.pages).toString();
          var newPage = 'en.wikipedia.org?curid=' + pageid
          window.location = 'http://' + newPage + '.com';
        }
