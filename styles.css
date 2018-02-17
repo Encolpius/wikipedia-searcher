@@ -128,7 +128,8 @@ button {
   border-radius: 6px;
 }
 
-input:focus {
+input:focus,
+button:focus {
   outline: 0;
 }
 
