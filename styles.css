@@ -125,7 +125,7 @@ button {
   cursor: pointer;
   border: none;
   min-width: 69px;
-  border-radius: 6px;
+  border-radius: 9px;
 }
 
 input:focus,
