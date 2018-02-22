@@ -58,6 +58,7 @@ Custom Global
 @import url('https://fonts.googleapis.com/css?family=Marcellus');
 
 html {
+  height: 100%;
   background-color: #040119;
   color: white;
 }
@@ -151,29 +152,34 @@ Results Display
 */
 
 #article-area {
-  margin: 13px;
+  margin: 0 auto;
+  width: 70%;
   margin-top: 40px;
-  height: 400px;
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(4, 1fr);
   grid-gap: 10px;
   text-align: left;
 }
 
 .articleBox {
   margin: 0 auto;
+  width: 100%;
   font-family: 'Marcellus', serif;
+  font-size: 18px;
   padding-top: 10px;
-  padding-left: 8px;
+  padding-left: 15px;
+  padding-right: 15px;
   padding-bottom: 8px;
   color: black;
   background: #d9d9db;
-  max-height: 92px;
+  overflow: hidden;
 }
 
-#article-area > div {
-  border: 1px solid white;
+.hover-border {
+  border-left: 5px solid transparent; 
+}
+
+.articleBox:hover {
+  border-left: 5px solid orange;
 }
 
 /*
@@ -190,6 +196,8 @@ Footer
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-top: 6em;
+  margin-bottom: 5em;
 }
 
 /*
@@ -198,12 +206,12 @@ Links
 =============================
 */
 
-a {
+.articleBox a {
   text-decoration: none;
+  color: black;
   cursor: pointer;
 }
 
-a:hover {
-  border-left: 3px;
-  border-left: orange;
+.title {
+  font-weight: 700;
 }

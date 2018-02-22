@@ -33,33 +33,33 @@ function getQuery () {
      let searchTerms = $('#input-box').val();
 
      $.ajax({
-        url: "https://en.wikipedia.org/w/api.php?",
+        url: "http://en.wikipedia.org/w/api.php?",
         type: 'GET',
         dataType: 'jsonp',
         contentType: "application/json; charset=utf-8",
         headers: { 'Api-User-Agent': 'http://localhost:8080'},
         data: {
-          action: 'query',
+          action: 'opensearch',
+          search: searchTerms,
           format: 'json',
-          list: 'search',
-          srsearch: searchTerms,
-          srlimit: '8',
-          prop: 'extracts',
-          inprop: 'url',
+          limit: '8',
         },
 
         success: function (data) {
           console.log(data)
           $('#article-area').empty();
-          var results = data.query.search;
-          console.log(results);
+          var title = data[1];
+          var snippet = data[2]
+          var url = data[3];
 
-          for (var i = 0; i < 8; i++) {
-            let title = data.query.search[i].title;
-            let snippet = data.query.search[i].snippet;
-            let pageid = data.query.search[i].pageid;
-            let url = 'https://en.wikipedia.org/wiki?curid=' + pageid;
-            $('#article-area').append('<a href=' + url + '><div class="articleBox">' + title + '<br><br><br>' + snippet + '...</div></a>');
+           for (var i = 0; i < title.length; i++) {
+             for (var i = 0; i < snippet.length; i++) {
+               for (var i = 0; i < url.length; i++) {
+                $('#article-area').append('<a href=' + url[i] + '><div class="articleBox hover-border"><div class="title">' + title[i] + '</div><br><br>' + snippet[i] + '<div></a>')
+               }
+             }
+
+          //  $('#article-area').append('<a href=' + url + '><div class="articleBox"><div class="title">' + title + '</div><br><br>' + snippet + '...</div></a>');
           }
         }
       });
