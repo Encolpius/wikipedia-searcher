@@ -46,7 +46,6 @@ function getQuery () {
         },
 
         success: function (data) {
-          console.log(data)
           $('#article-area').empty();
           var title = data[1];
           var snippet = data[2]
@@ -58,8 +57,6 @@ function getQuery () {
                 $('#article-area').append('<a href=' + url[i] + '><div class="articleBox hover-border"><div class="title">' + title[i] + '</div><br><br>' + snippet[i] + '</div></a>')
                }
              }
-
-          //  $('#article-area').append('<a href=' + url + '><div class="articleBox"><div class="title">' + title + '</div><br><br>' + snippet + '...</div></a>');
           }
         }
       });
