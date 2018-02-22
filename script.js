@@ -33,7 +33,7 @@ function getQuery () {
      let searchTerms = $('#input-box').val();
 
      $.ajax({
-        url: "http://en.wikipedia.org/w/api.php?",
+        url: "https://en.wikipedia.org/w/api.php?",
         type: 'GET',
         dataType: 'jsonp',
         contentType: "application/json; charset=utf-8",
@@ -55,7 +55,7 @@ function getQuery () {
            for (var i = 0; i < title.length; i++) {
              for (var i = 0; i < snippet.length; i++) {
                for (var i = 0; i < url.length; i++) {
-                $('#article-area').append('<a href=' + url[i] + '><div class="articleBox hover-border"><div class="title">' + title[i] + '</div><br><br>' + snippet[i] + '<div></a>')
+                $('#article-area').append('<a href=' + url[i] + '><div class="articleBox hover-border"><div class="title">' + title[i] + '</div><br><br>' + snippet[i] + '</div></a>')
                }
              }
 
